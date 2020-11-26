@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=swap");
+
+/* make sure that the body has a heoght of 100% */
+body,
+html
+{
+    height: 100%;
+}
+
+body
+{
+    /* removing default margin */
+    margin: 0;
+
+    /* centring */
+    display: grid;
+    place-items: center;
+
+    background: #040404;
+    font-family: "Open Sans", sans-serif;
+}
+
+label
+{
+    /* using relative so we can position the search icon with absolute */
+    position: relative;
+}
+
+ /* 
+  * using "label svg" instead of "label i" because
+  * feather icon replace the <i> with the actual svg
+  */
+
+label svg
+{
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    transform: translateY(-50%);
+    color: #393838;
+    transition: color .2s;
+}
+
+  /* 
+  * if a child of the label (the input) has focus
+  * then change the color of the svg
+  */
+
+label:focus-within svg
+{
+    color: #f5f8ff;
+}
+
+label input
+{
+    /* inherit applies the font-family styles of the body */
+    font-family: inherit;
+    font-size: 1.2erm;
+    color: #f5f8ff;
+    background: rgba(245, 248, 255, .025);
+    padding: 1rem 1.4rem 1rem 3.2rem;
+    min-width: 12rem;
+    outline: none;
+    border: .15rem solid transparent;
+    border-radius: 0.4rem;
+
+    /* used for transition animations */
+    transition: border-color .2s, box-shadow .2s;
+}
+
+/* change the border-color of the inpt on hover */
+label:hover input 
+{
+    border-color: rgba(245, 248, 255, .2);
+}
+
+/* changing the color of the placeholder */
+label input::placeholder 
+{
+    color: #393838;
+    user-select: none;
+}
+
+/* change the border-color and apply a box-shadow on focus */
+label input:focus 
+{
+    border-color: #ff4754;
+    box-shadow: 0 0 0 .4rem rgba(255, 71, 84, .15);
+}
